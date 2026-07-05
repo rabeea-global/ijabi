@@ -10,12 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* ألوان الهوية البصرية المستوحاة من اللوجو */
-    --teal: #1E888A;       /* التركواز الأساسي */
-    --teal-dark: #156263;  /* تركواز غامق للظل والتأثيرات */
-    --navy: #1A3C63;       /* الكحلي من النص الصغير */
-    --gold: #C6A651;       /* الذهبي من الزخرفة */
-    --cream: #F9F8F4;      /* لون الخلفية الأوف وايت */
+    --teal: #1E888A;
+    --teal-dark: #156263;
+    --navy: #1A3C63;
+    --gold: #C6A651;
+    --cream: #F9F8F4;
     --white: #FFFFFF;
     --ink: #2A2030;
     --ink-soft: #5A4F63;
@@ -47,11 +46,11 @@
     position: relative; z-index: 2; margin-bottom: 2rem;
   }
   
-  /* إعدادات اللوجو ليناسب جيت هب والخلفية الشفافة */
   .brand .mark {
     width: 200px;
     height: auto;
     filter: drop-shadow(0 4px 15px rgba(30, 136, 138, 0.15));
+    mix-blend-mode: darken; 
   }
 
   .hero-core { position: relative; z-index: 2; margin: auto 0; display: flex; flex-direction: column; align-items: center; }
@@ -68,7 +67,7 @@
   .cue { position: relative; z-index: 2; margin-top: auto; font-size: .95rem; font-weight: 700; color: var(--teal-dark); animation: bob 2s ease-in-out infinite; }
   @keyframes bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(7px) } }
 
-  /* ---------- LIGHT PANEL (Instructions) ---------- */
+  /* ---------- LIGHT PANEL ---------- */
   .panel {
     background: var(--white);
     border-radius: 40px 40px 0 0;
@@ -96,13 +95,12 @@
   .step h3 { font-size: 1.2rem; font-weight: 700; color: var(--teal); margin-bottom: 4px; }
   .step p { color: var(--ink-soft); font-size: 1rem; }
 
-  /* what it is / isn't */
   .meaning { max-width: 520px; margin: 34px auto 0; background: var(--cream); border-radius: 18px; padding: 22px; border: 1.5px dashed var(--gold); }
   .meaning .row { display: flex; gap: 10px; align-items: flex-start; font-size: 1rem; margin: 8px 0; color: var(--navy); }
   .meaning .yes { color: var(--teal); font-weight: 700; flex: none; font-size: 1.2rem; }
   .meaning .no { color: #E74C3C; font-weight: 700; flex: none; font-size: 1.2rem; }
 
-  /* ---------- CTA & CONSENT ---------- */
+  /* ---------- CTA ---------- */
   .cta-wrap { max-width: 520px; margin: 45px auto 0; text-align: center; }
   .consent { 
     display: flex; gap: 12px; align-items: flex-start; text-align: right; 
@@ -140,6 +138,7 @@
 </head>
 <body>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="brand">
       <img src="logo.png" alt="شعار منصة إيجابي" class="mark">
@@ -154,6 +153,7 @@
     <div class="cue">↓ شلون تشارك؟</div>
   </header>
 
+  <!-- LIGHT PANEL -->
   <main class="panel">
     <div class="eyebrow">ثلاث خطوات بسيطة</div>
     <h2 class="h2">صير انت الترند</h2>
@@ -223,7 +223,6 @@
     if(!consent.checked){ 
       e.preventDefault(); 
       box.classList.add('on'); 
-      // اهتزاز بسيط لتنبيه المستخدم لتحديد المربع
       box.style.transform = "translateX(-5px)";
       setTimeout(() => box.style.transform = "translateX(5px)", 100);
       setTimeout(() => box.style.transform = "translateX(0)", 200);
