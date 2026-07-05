@@ -12,8 +12,10 @@
   :root {
     --teal: #1E888A;
     --teal-dark: #156263;
+    --teal-light: #26a9ab;
     --navy: #1A3C63;
     --gold: #C6A651;
+    --gold-light: #e8c66a;
     --cream: #F9F8F4;
     --white: #FFFFFF;
     --ink: #2A2030;
@@ -25,7 +27,7 @@
   body {
     font-family: 'Tajawal', system-ui, sans-serif;
     color: var(--ink);
-    background: var(--cream);
+    background: var(--teal); /* تم تغيير لون الخلفية للتركواز الخاص باللوجو */
     line-height: 1.7;
     overflow-x: hidden;
   }
@@ -33,11 +35,11 @@
   /* ---------- HERO ---------- */
   .hero {
     position: relative;
-    <img src="logo.png" alt="شعار منصة إيجابي" class="mark">
+    min-height: 100svh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
     padding: 32px 20px 48px;
-    background: radial-gradient(circle at 50% -20%, #ffffff 0%, var(--cream) 70%);
+    background: radial-gradient(circle at 50% 0%, var(--teal-light) 0%, var(--teal-dark) 100%);
     overflow: hidden;
   }
 
@@ -47,25 +49,30 @@
   }
   
   .brand .mark {
-    width: 200px;
+    width: 220px;
     height: auto;
-    filter: drop-shadow(0 4px 15px rgba(30, 136, 138, 0.15));
-    mix-blend-mode: darken; 
+    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.2));
+    /* تم إزالة mix-blend-mode لكي يبرز اللوجو بوضوح على الخلفية التركوازية */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .brand .mark:hover {
+    transform: scale(1.05) rotate(-2deg);
   }
 
   .hero-core { position: relative; z-index: 2; margin: auto 0; display: flex; flex-direction: column; align-items: center; }
-  .say { font-size: 1.1rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; margin-bottom: .4em; font-family: 'Changa'; }
+  .say { font-size: 1.3rem; color: var(--cream); font-weight: 700; letter-spacing: 1px; margin-bottom: .4em; font-family: 'Changa'; }
   .declare {
     font-family: 'Changa'; font-weight: 800;
-    font-size: clamp(3.4rem, 16vw, 6.5rem);
+    font-size: clamp(3.8rem, 18vw, 7rem); /* تكبير العنوان */
     line-height: 1.1;
-    color: var(--teal);
+    color: var(--gold); /* تغيير للذهبي ليتناسب مع الخلفية التركواز */
+    text-shadow: 0 4px 15px rgba(0,0,0,0.15);
     margin-bottom: .35em;
   }
-  .essence { font-size: clamp(1.05rem, 4.4vw, 1.3rem); max-width: 25ch; color: var(--navy); font-weight: 500; }
+  .essence { font-size: clamp(1.2rem, 5vw, 1.5rem); max-width: 25ch; color: var(--cream); font-weight: 500; }
   
-  .cue { position: relative; z-index: 2; margin-top: auto; font-size: .95rem; font-weight: 700; color: var(--teal-dark); animation: bob 2s ease-in-out infinite; }
-  @keyframes bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(7px) } }
+  .cue { position: relative; z-index: 2; margin-top: auto; font-size: 1.1rem; font-weight: 700; color: var(--gold-light); animation: bob 2s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(10px) } }
 
   /* ---------- LIGHT PANEL ---------- */
   .panel {
@@ -73,66 +80,96 @@
     border-radius: 40px 40px 0 0;
     margin-top: -30px; position: relative; z-index: 3;
     padding: 60px 22px 50px;
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.03);
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.1);
   }
-  .eyebrow { text-align: center; color: var(--gold); font-weight: 700; font-size: 1rem; margin-bottom: 6px; font-family: 'Changa'; }
-  .h2 { font-family: 'Changa'; font-weight: 700; font-size: clamp(1.6rem, 7vw, 2.2rem); text-align: center; margin-bottom: 35px; color: var(--navy); }
+  .eyebrow { text-align: center; color: var(--gold); font-weight: 700; font-size: 1.2rem; margin-bottom: 6px; font-family: 'Changa'; }
+  .h2 { font-family: 'Changa'; font-weight: 700; font-size: clamp(2rem, 8vw, 2.8rem); text-align: center; margin-bottom: 40px; color: var(--navy); }
 
-  .steps { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+  /* تكبير الكلمات الإرشادية */
+  .steps { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
   .step { 
-    display: flex; gap: 16px; align-items: flex-start; 
-    background: var(--cream); border-radius: 18px; padding: 20px; 
-    border: 1px solid rgba(30, 136, 138, 0.1);
-    transition: transform 0.2s;
+    display: flex; gap: 18px; align-items: flex-start; 
+    background: var(--cream); border-radius: 20px; padding: 25px; 
+    border: 2px solid rgba(30, 136, 138, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  .step:hover { transform: translateX(-5px); }
+  .step:hover { transform: translateX(-8px) scale(1.02); border-color: var(--teal); box-shadow: 0 8px 20px rgba(30, 136, 138, 0.1); }
   .step .n { 
-    flex: none; width: 45px; height: 45px; border-radius: 14px; display: grid; place-items: center;
-    font-family: 'Changa'; font-weight: 800; font-size: 1.3rem; color: #fff;
+    flex: none; width: 55px; height: 55px; border-radius: 16px; display: grid; place-items: center;
+    font-family: 'Changa'; font-weight: 800; font-size: 1.6rem; color: #fff;
     background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-    box-shadow: 0 4px 12px rgba(30, 136, 138, 0.25);
+    box-shadow: 0 6px 15px rgba(30, 136, 138, 0.3);
   }
-  .step h3 { font-size: 1.2rem; font-weight: 700; color: var(--teal); margin-bottom: 4px; }
-  .step p { color: var(--ink-soft); font-size: 1rem; }
+  .step h3 { font-size: 1.5rem; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+  .step p { color: var(--ink-soft); font-size: 1.15rem; line-height: 1.6; }
 
-  .meaning { max-width: 520px; margin: 34px auto 0; background: var(--cream); border-radius: 18px; padding: 22px; border: 1.5px dashed var(--gold); }
-  .meaning .row { display: flex; gap: 10px; align-items: flex-start; font-size: 1rem; margin: 8px 0; color: var(--navy); }
-  .meaning .yes { color: var(--teal); font-weight: 700; flex: none; font-size: 1.2rem; }
-  .meaning .no { color: #E74C3C; font-weight: 700; flex: none; font-size: 1.2rem; }
+  .meaning { max-width: 600px; margin: 40px auto 0; background: var(--cream); border-radius: 20px; padding: 25px; border: 2px dashed var(--gold); }
+  .meaning .row { display: flex; gap: 12px; align-items: flex-start; font-size: 1.15rem; margin: 12px 0; color: var(--navy); }
+  .meaning .yes { color: var(--teal); font-weight: 800; flex: none; font-size: 1.4rem; }
+  .meaning .no { color: #E74C3C; font-weight: 800; flex: none; font-size: 1.4rem; }
 
-  /* ---------- CTA ---------- */
-  .cta-wrap { max-width: 520px; margin: 45px auto 0; text-align: center; }
+  /* ---------- CTA & VICTORY ANIMATIONS ---------- */
+  .cta-wrap { max-width: 600px; margin: 50px auto 0; text-align: center; position: relative; }
+  
   .consent { 
-    display: flex; gap: 12px; align-items: flex-start; text-align: right; 
-    background: var(--white); border-radius: 16px; padding: 18px; cursor: pointer; 
-    border: 2px solid #EAEAEA; transition: all .2s;
+    display: flex; gap: 15px; align-items: flex-start; text-align: right; 
+    background: var(--white); border-radius: 18px; padding: 22px; cursor: pointer; 
+    border: 3px solid #EAEAEA; transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  .consent.on { border-color: var(--teal); background: rgba(30, 136, 138, 0.03); }
-  .consent input { margin-top: 5px; width: 22px; height: 22px; flex: none; accent-color: var(--teal); cursor: pointer; }
-  .consent span { font-size: 0.98rem; color: var(--navy); font-weight: 500; }
+  .consent.on { 
+    border-color: var(--teal); 
+    background: rgba(30, 136, 138, 0.05);
+    transform: scale(1.03); /* حركة الانتصار الأولى */
+    box-shadow: 0 10px 25px rgba(30, 136, 138, 0.15);
+  }
+  .consent input { margin-top: 6px; width: 26px; height: 26px; flex: none; accent-color: var(--teal); cursor: pointer; }
+  .consent span { font-size: 1.15rem; color: var(--navy); font-weight: 700; }
   
   .cta {
-    display: block; width: 100%; margin-top: 20px;
+    display: block; width: 100%; margin-top: 25px;
     text-decoration: none; text-align: center;
-    font-family: 'Changa'; font-weight: 800; font-size: 1.3rem;
-    color: #fff; padding: 20px; border-radius: 18px; border: none; cursor: not-allowed;
-    background: #D5D5D5; transition: all .3s;
+    font-family: 'Changa'; font-weight: 800; font-size: 1.6rem;
+    color: #fff; padding: 22px; border-radius: 20px; border: none; cursor: not-allowed;
+    background: #D5D5D5; transition: all .4s;
+    position: relative;
+    overflow: hidden;
   }
-  .cta.ready { 
-    background: linear-gradient(135deg, var(--teal), var(--teal-dark)); 
-    cursor: pointer; 
-    box-shadow: 0 10px 25px rgba(30, 136, 138, 0.35); 
-  }
-  .cta.ready:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(30, 136, 138, 0.45); }
-  .cta .tg { font-family: 'Tajawal'; font-weight: 500; font-size: .9rem; display: block; opacity: .9; margin-top: 2px; }
   
-  .privacy { font-size: .85rem; color: var(--ink-soft); margin-top: 16px; }
+  /* حركة الانتصار للزر */
+  @keyframes victoryPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 166, 81, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 25px 15px rgba(198, 166, 81, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 166, 81, 0); }
+  }
+  
+  .cta.ready { 
+    background: linear-gradient(135deg, var(--gold), #d4ad45); 
+    color: var(--navy);
+    cursor: pointer; 
+    animation: victoryPulse 2s infinite; /* نبض مستمر للتشجيع */
+  }
+  .cta.ready:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 15px 35px rgba(198, 166, 81, 0.5); 
+  }
+  .cta .tg { font-family: 'Tajawal'; font-weight: 700; font-size: 1rem; display: block; opacity: .9; margin-top: 4px; }
+  
+  .privacy { font-size: 1rem; color: var(--ink-soft); margin-top: 20px; font-weight: 500; }
 
-  footer { background: var(--white); color: var(--ink-soft); text-align: center; padding: 20px 20px 40px; font-size: .9rem; }
-  footer .mk { font-family: 'Changa'; font-weight: 700; color: var(--navy); font-size: 1.1rem; margin-bottom: 5px; }
+  footer { background: var(--white); color: var(--ink-soft); text-align: center; padding: 30px 20px 50px; font-size: 1rem; }
+  footer .mk { font-family: 'Changa'; font-weight: 700; color: var(--teal); font-size: 1.3rem; margin-bottom: 8px; }
+
+  /* قصاصات ورق الاحتفال المخفية (Confetti) */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--gold);
+    opacity: 0;
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .cue { animation: none; }
+    .cue, .cta.ready { animation: none; }
   }
 </style>
 </head>
@@ -161,24 +198,24 @@
     <div class="steps">
       <div class="step">
         <div class="n">١</div>
-        <div><h3>سجّل نفسك</h3><p>فيديو قصير عمودي، وكول بصراحة: «آني إيجابي». بلهجتك، ومن قلبك.</p></div>
+        <div><h3>سجّل نفسك</h3><p>فيديو قصير عمودي، وكول بصراحة: «آني إيجابي». بلهجتك، ومن قلبك، بدون أي تصنّع.</p></div>
       </div>
       <div class="step">
         <div class="n">٢</div>
-        <div><h3>ارسله عبر تليغرام</h3><p>اضغط الزر بالأسفل، يفتح تليغرام، وارسل فيديوك مباشرة. بدون تعقيد أو تسجيل حساب.</p></div>
+        <div><h3>ارسله عبر تليغرام</h3><p>اضغط الزر بالأسفل، يفتح تليغرام، وارسل فيديوك مباشرة. بدون تعقيد أو تسجيل حساب أو خطوات مملة.</p></div>
       </div>
       <div class="step">
         <div class="n">٣</div>
-        <div><h3>نراجع وننشر</h3><p>نراجع الفيديو، وإذا طابق الشروط ننشره على صفحة "إيجابي" لننشر الإيجابية عن المجتمع العراقي.</p></div>
+        <div><h3>نراجع وننشر</h3><p>نراجع الفيديو، وإذا طابق الشروط ننشره على صفحة "إيجابي" لننشر الإيجابية عن المجتمع العراقي معاً.</p></div>
       </div>
     </div>
 
     <div class="meaning">
-      <div class="row"><span class="yes">✓ نريد</span><span>قصة حقيقية، شعور صادق، وتعبير عفوي بأي مكان.</span></div>
-      <div class="row"><span class="no">✕ ما نريد</span><span>إعلان تجاري، ترويج لمنتج، أو تصنّع. بس التعبير الصادق.</span></div>
+      <div class="row"><span class="yes">✓ نريد</span><span>قصة حقيقية، شعور صادق، وتعبير عفوي بأي مكان (بالشارع، بالشغل، بالجامعة).</span></div>
+      <div class="row"><span class="no">✕ ما نريد</span><span>إعلان تجاري، ترويج لمنتج، أو تصنّع. بس التعبير الصادق النابع من القلب.</span></div>
     </div>
 
-    <div class="cta-wrap">
+    <div class="cta-wrap" id="confetti-container">
       <label class="consent" id="consentBox">
         <input type="checkbox" id="consent">
         <span>قرأت التعليمات، وأوافق قانونياً على مشاركة ونشر الفيديو الخاص بي علناً على منصّات "إيجابي" للمساهمة في نشر الإيجابية.</span>
@@ -204,6 +241,33 @@
   var consent = document.getElementById('consent');
   var box = document.getElementById('consentBox');
   var cta = document.getElementById('cta');
+  var container = document.getElementById('confetti-container');
+
+  // دالة لإنشاء حركة احتفال بسيطة (Confetti) عند الموافقة
+  function createConfetti() {
+    for (let i = 0; i < 15; i++) {
+      let conf = document.createElement('div');
+      conf.classList.add('confetti');
+      conf.style.left = Math.random() * 100 + '%';
+      conf.style.top = '50%';
+      conf.style.backgroundColor = i % 2 === 0 ? '#C6A651' : '#1E888A';
+      conf.style.borderRadius = i % 3 === 0 ? '50%' : '0';
+      container.appendChild(conf);
+
+      let angle = Math.random() * Math.PI * 2;
+      let velocity = 50 + Math.random() * 50;
+      let tx = Math.cos(angle) * velocity;
+      let ty = Math.sin(angle) * velocity - 50;
+
+      conf.animate([
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: `translate(${tx}px, ${ty}px) scale(0) rotate(${Math.random()*360}deg)`, opacity: 0 }
+      ], {
+        duration: 800 + Math.random() * 500,
+        easing: 'cubic-bezier(.25,.8,.25,1)'
+      }).onfinish = () => conf.remove();
+    }
+  }
 
   consent.addEventListener('change', function(){
     if(consent.checked){
@@ -211,6 +275,17 @@
       cta.setAttribute('href', TELEGRAM_BOT);
       cta.removeAttribute('aria-disabled');
       box.classList.add('on');
+      
+      // إطلاق حركة الانتصار عند التحديد
+      createConfetti();
+      
+      // اهتزاز النصر اللطيف للمربع
+      box.animate([
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.05)' },
+        { transform: 'scale(1.03)' }
+      ], { duration: 300 });
+
     } else {
       cta.classList.remove('ready');
       cta.setAttribute('href','#');
@@ -223,9 +298,16 @@
     if(!consent.checked){ 
       e.preventDefault(); 
       box.classList.add('on'); 
-      box.style.transform = "translateX(-5px)";
-      setTimeout(() => box.style.transform = "translateX(5px)", 100);
-      setTimeout(() => box.style.transform = "translateX(0)", 200);
+      // اهتزاز التنبيه في حال نسيان تحديد المربع
+      box.animate([
+        { transform: 'translateX(-8px)' },
+        { transform: 'translateX(8px)' },
+        { transform: 'translateX(-5px)' },
+        { transform: 'translateX(5px)' },
+        { transform: 'translateX(0)' }
+      ], { duration: 400 });
+      
+      setTimeout(() => box.classList.remove('on'), 400);
     }
   });
 </script>
