@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إيجابي — كول بصوتك: آني إيجابي</title>
+<meta name="description" content="عبّر عن إيجابيتك. سجّل فيديو قصير وكول بصوتك: آني إيجابي. أول منصة عراقية لنشر الإيجابية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#1E888A; --teal-bright:#2FC4C4; --teal-deep:#0E5859;
+    --navy:#17365C; --navy-deep:#0F2540;
+    --gold:#C6A651; --gold-bright:#E7CD7E;
+    --cream:#F6F1E5; --cream-2:#FBF8F0; --white:#FFFFFF;
+    --ink:#1F2A31; --ink-soft:#5C6670;
+    --display:'Changa',system-ui,sans-serif;
+    --body:'Tajawal',system-ui,sans-serif;
+    --shadow:0 18px 45px -18px rgba(23,54,92,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body); color:var(--ink); line-height:1.75; overflow-x:hidden;
+    background:var(--cream);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(47,196,196,.10), transparent 42%),
+      radial-gradient(circle at 85% 8%, rgba(198,166,81,.12), transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%231E888A' stroke-width='1' opacity='0.06'%3E%3Cpath d='M24 4l5 15 15 5-15 5-5 15-5-15-15-5 15-5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:100svh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:40px 20px 64px; overflow:hidden;
+  }
+  .halo{ position:relative; width:min(78vw,340px); aspect-ratio:1; display:grid; place-items:center; margin-bottom:1.6rem; }
+  .halo svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .ring-a{ animation:spin 60s linear infinite; }
+  .ring-b{ animation:spin 44s linear infinite reverse; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .logo{
+    position:relative; z-index:2; width:64%; height:auto;
+    filter:drop-shadow(0 14px 30px rgba(15,37,64,.22));
+    animation:rise .9s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes rise{ from{ opacity:0; transform:translateY(18px) scale(.96);} to{opacity:1;transform:none;} }
+
+  .eyebrow{
+    font-family:var(--display); font-weight:700; letter-spacing:2px;
+    color:var(--teal); font-size:1.05rem;
+    display:inline-flex; align-items:center; gap:10px;
+    padding:7px 18px; border-radius:999px;
+    background:rgba(47,196,196,.12); border:1px solid rgba(30,136,138,.22);
+    animation:rise .9s .1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .declare{
+    font-family:var(--display); font-weight:800; line-height:1.05;
+    font-size:clamp(3.6rem,17vw,6.6rem); margin:.28em 0 .18em;
+    background:linear-gradient(100deg,var(--teal) 0%,var(--teal-bright) 45%,var(--gold) 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--teal);
+    animation:rise .9s .18s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .essence{ max-width:24ch; color:var(--navy); font-weight:500; font-size:clamp(1.15rem,4.6vw,1.42rem);
+    animation:rise .9s .26s cubic-bezier(.2,.8,.2,1) both; }
+  .cue{ margin-top:auto; padding-top:34px; color:var(--teal-deep); font-family:var(--display); font-weight:700; font-size:1.05rem; }
+  .cue span{ display:block; font-size:1.5rem; animation:bob 1.8s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+  /* floating geometric confetti in hero */
+  .spark{ position:absolute; z-index:1; color:var(--gold); opacity:.5; animation:drift 9s ease-in-out infinite; }
+  .spark.t{ color:var(--teal-bright); }
+  @keyframes drift{ 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-22px) rotate(40deg)} }
+
+  /* ---------- TEAL BAND: STEPS ---------- */
+  .band{
+    position:relative; margin-top:-2px;
+    background:linear-gradient(160deg,var(--teal) 0%,var(--teal-deep) 100%);
+    color:var(--cream-2); padding:70px 20px 78px;
+    border-radius:44px 44px 0 0; box-shadow:0 -20px 50px -30px rgba(14,88,89,.9);
+  }
+  .band::before{ content:""; position:absolute; inset:0; border-radius:44px 44px 0 0; opacity:.14;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23F6F1E5' stroke-width='1'%3E%3Ccircle cx='30' cy='30' r='14'/%3E%3Cpath d='M30 2v12M30 46v12M2 30h12M46 30h12'/%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
+  .kicker{ position:relative; text-align:center; font-family:var(--display); font-weight:700; color:var(--gold-bright); letter-spacing:1px; font-size:1.1rem; margin-bottom:6px; }
+  .h2{ position:relative; text-align:center; font-family:var(--display); font-weight:800; font-size:clamp(2.1rem,8.5vw,3rem); margin-bottom:44px; color:var(--white); }
+
+  .steps{ position:relative; max-width:900px; margin:0 auto; display:grid; gap:18px; grid-template-columns:1fr; }
+  @media(min-width:820px){ .steps{ grid-template-columns:repeat(3,1fr); } }
+  .step{
+    background:var(--cream-2); color:var(--ink); border-radius:24px; padding:28px 24px;
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+  }
+  .step::after{ content:""; position:absolute; top:0; inset-inline-start:0; width:100%; height:5px;
+    background:linear-gradient(90deg,var(--teal-bright),var(--gold)); }
+  .step:hover{ transform:translateY(-8px); box-shadow:0 26px 55px -20px rgba(15,37,64,.5); }
+  .step .top{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .step .n{ flex:none; width:52px; height:52px; border-radius:15px; display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:1.5rem; color:#fff;
+    background:linear-gradient(135deg,var(--teal),var(--teal-deep)); box-shadow:0 8px 18px -6px rgba(14,88,89,.7); }
+  .step .ic{ width:30px; height:30px; color:var(--gold); flex:none; margin-inline-start:auto; }
+  .step h3{ font-family:var(--display); font-size:1.4rem; font-weight:700; color:var(--teal-deep); margin-bottom:6px; }
+  .step p{ color:var(--ink-soft); font-size:1.08rem; }
+
+  /* ---------- MEANING ---------- */
+  .want{ max-width:760px; margin:0 auto; padding:64px 22px 8px; display:grid; gap:16px; }
+  @media(min-width:720px){ .want{ grid-template-columns:1fr 1fr; } }
+  .card{ border-radius:22px; padding:24px 24px; background:var(--white); box-shadow:var(--shadow); border:2px solid transparent; }
+  .card h4{ font-family:var(--display); font-weight:800; font-size:1.3rem; display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .card p{ color:var(--ink-soft); font-size:1.08rem; }
+  .card.yes{ border-color:rgba(30,136,138,.3); } .card.yes h4{ color:var(--teal-deep); }
+  .card.no{ border-color:rgba(224,90,72,.3); } .card.no h4{ color:#D2543F; }
+  .chip{ width:34px; height:34px; border-radius:11px; display:grid; place-items:center; color:#fff; font-weight:800; flex:none; }
+  .chip.g{ background:linear-gradient(135deg,var(--teal),var(--teal-deep)); }
+  .chip.r{ background:linear-gradient(135deg,#E06A53,#C63F2C); }
+
+  /* ---------- CTA ---------- */
+  .cta-wrap{ max-width:640px; margin:44px auto 0; padding:0 22px; position:relative; }
+  .consent{ display:flex; gap:14px; align-items:flex-start; text-align:right; cursor:pointer;
+    background:var(--white); border:2.5px solid #E9E4D6; border-radius:18px; padding:20px;
+    transition:all .3s cubic-bezier(.2,.8,.2,1); }
+  .consent.on{ border-color:var(--teal); background:rgba(47,196,196,.06); transform:scale(1.02); box-shadow:var(--shadow); }
+  .consent input{ margin-top:4px; width:26px; height:26px; flex:none; accent-color:var(--teal); cursor:pointer; }
+  .consent span{ font-size:1.08rem; color:var(--navy); font-weight:500; }
+  .cta{ display:block; width:100%; margin-top:20px; text-decoration:none; text-align:center; cursor:not-allowed;
+    font-family:var(--display); font-weight:800; font-size:1.5rem; color:#8a8577; padding:22px; border-radius:20px; border:none;
+    background:#E4DECF; transition:all .35s; }
+  .cta .tg{ font-family:var(--body); font-weight:700; font-size:.95rem; display:block; opacity:.9; margin-top:4px; }
+  .cta.ready{ cursor:pointer; color:var(--navy-deep);
+    background:linear-gradient(135deg,var(--gold-bright),var(--gold)); animation:pulse 2.2s infinite; }
+  .cta.ready:hover{ transform:translateY(-4px) scale(1.02); box-shadow:0 18px 40px -12px rgba(198,166,81,.6); }
+  @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(198,166,81,.55)} 70%{box-shadow:0 0 0 18px rgba(198,166,81,0)} 100%{box-shadow:0 0 0 0 rgba(198,166,81,0)} }
+  .privacy{ text-align:center; font-size:.98rem; color:var(--ink-soft); margin-top:16px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ text-align:center; padding:48px 20px 60px; color:var(--ink-soft); font-size:1rem; }
+  footer .mk{ font-family:var(--display); font-weight:800; color:var(--teal); font-size:1.5rem; margin-bottom:6px; }
+  footer .dot{ display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold); margin:0 8px; vertical-align:middle; }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  .confetti{ position:absolute; width:11px; height:11px; opacity:0; z-index:5; pointer-events:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .ring-a,.ring-b,.cue span,.cta.ready,.spark{ animation:none; }
+    .reveal{ opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="spark" style="top:16%;inset-inline-start:12%" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+    <svg class="spark t" style="top:24%;inset-inline-end:14%;animation-delay:1.2s" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+    <svg class="spark" style="top:60%;inset-inline-start:8%;animation-delay:2s" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+
+    <div class="halo">
+      <svg class="ring-a" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="94" fill="none" stroke="#C6A651" stroke-width="1.5" stroke-dasharray="2 12" opacity=".55"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="#C6A651" stroke-width="1" stroke-dasharray="1 7" opacity=".4"/>
+      </svg>
+      <svg class="ring-b" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="76" fill="none" stroke="#2FC4C4" stroke-width="2" stroke-dasharray="3 10" opacity=".5"/>
+      </svg>
+      <img src="logo.png" alt="شعار منصة إيجابي" class="logo">
+    </div>
+
+    <div class="eyebrow">كول بصوتك</div>
+    <h1 class="declare">آني إيجابي</h1>
+    <p class="essence">عبّر عن إيجابيتك بفيديو قصير. شعورك يصير حقيقة.</p>
+
+    <div class="cue">شلون تشارك؟<span>↓</span></div>
+  </header>
+
+  <!-- TEAL BAND: STEPS -->
+  <section class="band">
+    <div class="kicker">ثلاث خطوات بس</div>
+    <h2 class="h2">صير انت الترند</h2>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="top">
+          <div class="n">١</div>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M22 8l-6 4 6 4z"/></svg>
+        </div>
+        <h3>سجّل نفسك</h3>
+        <p>فيديو قصير عمودي، وكول بصراحة: «آني إيجابي». بلهجتك، ومن قلبك، بدون تصنّع.</p>
+      </div>
+      <div class="step reveal">
+        <div class="top">
+          <div class="n">٢</div>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
+        </div>
+        <h3>ارسله بتليغرام</h3>
+        <p>اضغط الزر، يفتح تليغرام، وارسل فيديوك مباشرة. بدون تسجيل حساب ولا خطوات مملة.</p>
+      </div>
+      <div class="step reveal">
+        <div class="top">
+          <div class="n">٣</div>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.8 9.6 2.3 6 5.5 6 7.4 6 8.7 7 12 10c3.3-3 4.6-4 6.5-4 3.2 0 4.7 3.6 3 6.5C19 16.65 12 21 12 21z"/></svg>
+        </div>
+        <h3>نراجع وننشر</h3>
+        <p>نراجع الفيديو، وإذا طابق الشروط ننشره على صفحة «إيجابي» — ننشر إيجابية العراق سوا.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEANING -->
+  <section class="want">
+    <div class="card yes reveal">
+      <h4><span class="chip g">✓</span> نريد</h4>
+      <p>قصة حقيقية، شعور صادق، وتعبير عفوي بأي مكان — بالشارع، بالشغل، بالجامعة.</p>
+    </div>
+    <div class="card no reveal">
+      <h4><span class="chip r">✕</span> ما نريد</h4>
+      <p>إعلان تجاري، ترويج لمنتج، أو تصنّع. بس التعبير الصادق النابع من القلب.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-wrap" id="confetti-container">
+    <label class="consent" id="consentBox">
+      <input type="checkbox" id="consent">
+      <span>قرأت التعليمات، وأوافق قانونياً على نشر الفيديو الخاص بي علناً على منصّات «إيجابي» للمساهمة في نشر الإيجابية.</span>
+    </label>
+
+    <a class="cta" id="cta" href="#" aria-disabled="true">
+      شارك فيديوك هسه
+      <span class="tg">يفتح تطبيق تليغرام</span>
+    </a>
+    <p class="privacy">مشاركتك آمنة. ما نطلب أي معلومات شخصية إضافية.</p>
+  </div>
+
+  <footer>
+    <div class="mk">إيجابي</div>
+    أول منصة عراقية لنشر الإيجابية <span class="dot"></span> عن المجتمع العراقي
+  </footer>
+
+<script>
+  var TELEGRAM_BOT = "https://t.me/ijabi_bot";
+  var consent = document.getElementById('consent');
+  var box = document.getElementById('consentBox');
+  var cta = document.getElementById('cta');
+  var container = document.getElementById('confetti-container');
+
+  function createConfetti(){
+    var colors = ['#C6A651','#1E888A','#2FC4C4','#17365C','#E7CD7E'];
+    for (var i=0;i<22;i++){
+      var conf = document.createElement('div');
+      conf.className = 'confetti';
+      conf.style.left = Math.random()*100 + '%';
+      conf.style.top = '48px';
+      conf.style.background = colors[i % colors.length];
+      conf.style.borderRadius = i % 3 === 0 ? '50%' : (i % 3 === 1 ? '3px' : '0');
+      container.appendChild(conf);
+      var angle = Math.random()*Math.PI*2;
+      var vel = 60 + Math.random()*70;
+      var tx = Math.cos(angle)*vel;
+      var ty = Math.sin(angle)*vel - 60;
+      conf.animate([
+        { transform:'translate(0,0) scale(1)', opacity:1 },
+        { transform:'translate('+tx+'px,'+ty+'px) scale(0) rotate('+(Math.random()*420)+'deg)', opacity:0 }
+      ], { duration: 900 + Math.random()*600, easing:'cubic-bezier(.2,.8,.25,1)' }).onfinish = function(){ this.remove(); }.bind(conf);
+    }
+  }
+
+  consent.addEventListener('change', function(){
+    if(consent.checked){
+      cta.classList.add('ready');
+      cta.setAttribute('href', TELEGRAM_BOT);
+      cta.removeAttribute('aria-disabled');
+      box.classList.add('on');
+      createConfetti();
+    } else {
+      cta.classList.remove('ready');
+      cta.setAttribute('href','#');
+      cta.setAttribute('aria-disabled','true');
+      box.classList.remove('on');
+    }
+  });
+
+  cta.addEventListener('click', function(e){
+    if(!consent.checked){
+      e.preventDefault();
+      box.classList.add('on');
+      box.animate([
+        {transform:'translateX(-8px)'},{transform:'translateX(8px)'},
+        {transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'translateX(0)'}
+      ], {duration:400});
+      setTimeout(function(){ box.classList.remove('on'); }, 450);
+    }
+  });
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold:.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
